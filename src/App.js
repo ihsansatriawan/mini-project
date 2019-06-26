@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import { connect } from 'react-redux';
 import SearchRoute from './pages/Search';
 
 function Index() {
@@ -12,10 +11,7 @@ function About() {
   return <h2>About</h2>;
 }
 
-function App({ articles, searchTerm, onSearch }) {
-  console.log("articles: ", articles);
-  console.log("searchTerm: ", searchTerm);
-  console.log("onSearch: ", onSearch);
+function App() {
 
   return (
     <div className="App">
@@ -37,13 +33,4 @@ function App({ articles, searchTerm, onSearch }) {
   );
 }
 
-const mapStateToProps = ({ articlesState, searchState }) => ({
-  articles: articlesState.articles,
-  searchTerm: searchState.searchTerm
-});
-
-const mapDispatchToProps = dispatch => ({
-  onSearch: searchTerm => dispatch({ type: 'SEARCH_SET', searchTerm }),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
