@@ -1,7 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import SearchRoute from './pages/Search';
 
 function Index() {
   return <h2>Home</h2>;
@@ -12,6 +12,7 @@ function About() {
 }
 
 function App() {
+
   return (
     <div className="App">
       <Router>
@@ -19,11 +20,13 @@ function App() {
           <ul> 
             <li><Link to="/">Home</Link></li>
             <li><Link to="/about">About</Link></li>
+            <li><Link to="/search">Search</Link></li>
           </ul> 
         </div>
         <Switch>
           <Route path="/" exact component={Index} />
           <Route path="/about" component={About} />
+          <Route path="/search" component={SearchRoute} />
         </Switch>
       </Router>
     </div>
