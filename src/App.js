@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
 function Index() {
   return <h2>Home</h2>;
@@ -21,8 +21,10 @@ function App() {
             <li><Link to="/about">About</Link></li>
           </ul> 
         </div>
-        <Route path="/" exact component={Index} />
-        <Route path="/about" component={About} />
+        <Switch>
+          <Route path="/" exact component={Index} />
+          <Route path="/about" component={About} />
+        </Switch>
       </Router>
     </div>
   );
